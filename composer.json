@@ -1,0 +1,33 @@
+{
+    "name": "digiaonline/instance-factory",
+    "description": "A factory for constructing objects from arrays of properties",
+    "type": "library",
+    "require-dev": {
+        "phpunit/phpunit": "^7.3"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Sam Stenvall",
+            "email": "sam.stenvall@digia.com"
+        }
+    ],
+    "require": {
+        "php":">=7.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Digia\\InstanceFactory\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Digia\\InstanceFactory\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": [
+            "phpunit"
+        ]
+    }
+}
