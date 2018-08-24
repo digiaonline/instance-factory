@@ -1,5 +1,8 @@
 # instance-factory
 
+[![Build Status](https://travis-ci.org/digiaonline/instance-factory.svg?branch=master)](https://travis-ci.org/digiaonline/instance-factory)
+[![Coverage Status](https://coveralls.io/repos/github/digiaonline/instance-factory/badge.svg?branch=master)](https://coveralls.io/github/digiaonline/instance-factory?branch=master)
+
 A factory for constructing objects from arrays of properties
 
 ## Installation
