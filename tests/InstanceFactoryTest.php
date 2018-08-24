@@ -13,6 +13,8 @@ class InstanceFactoryTest extends TestCase
 {
 
     /**
+     * @covers \Digia\InstanceFactory\InstanceFactory::fromProperties
+     *
      * @throws \ReflectionException
      */
     public function testFromPropertiesWithoutOptional(): void
@@ -31,6 +33,8 @@ class InstanceFactoryTest extends TestCase
     }
 
     /**
+     * @covers \Digia\InstanceFactory\InstanceFactory::fromProperties
+     *
      * @throws \ReflectionException
      */
     public function testFromPropertiesWithOptional(): void
@@ -50,6 +54,8 @@ class InstanceFactoryTest extends TestCase
     }
 
     /**
+     * @covers \Digia\InstanceFactory\InstanceFactory::fromProperties
+     *
      * @throws \ReflectionException
      */
     public function testFromPropertiesWithNullable(): void
@@ -68,6 +74,7 @@ class InstanceFactoryTest extends TestCase
     }
 
     /**
+     * @covers \Digia\InstanceFactory\InstanceFactory::fromProperties
      * @expectedException \RuntimeException
      *
      * @throws \ReflectionException
