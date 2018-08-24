@@ -1,4 +1,5 @@
 /.idea
 /vendor
 /phpunit.xml
+/build/logs/clover.xml
 /composer.lock

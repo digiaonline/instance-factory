@@ -28,6 +28,9 @@
     "scripts": {
         "test": [
             "phpunit"
+        ],
+        "travis": [
+            "phpunit --coverage-clover build/logs/clover.xml"
         ]
     }
 }
