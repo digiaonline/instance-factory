@@ -59,6 +59,7 @@ $personOne = \Digia\InstanceFactory\InstanceFactory::fromProperties(Person::clas
     'age'  => 34,
 ]);
 
+// Create another instance where we do supply optional information
 /** @var Person $personOne */
 $personTwo = \Digia\InstanceFactory\InstanceFactory::fromProperties(Person::class, [
     'name'                => 'Alice Smith',
