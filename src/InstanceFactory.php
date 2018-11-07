@@ -3,7 +3,6 @@
 namespace Digia\InstanceFactory;
 
 use ReflectionClass;
-use RuntimeException;
 
 /**
  * Class InstanceFactory
@@ -16,14 +15,18 @@ class InstanceFactory
      * @param string $className
      * @param array  $properties
      *
-     * @throws RuntimeException
-     * @throws \ReflectionException
+     * @throws \RuntimeException
      *
      * @return mixed
      */
     public static function fromProperties(string $className, array $properties = [])
     {
-        $reflection = new ReflectionClass($className);
+        // Throw \RuntimeException instead of \ReflectionException
+        try {
+            $reflection = new ReflectionClass($className);
+        } catch (\ReflectionException $e) {
+            throw new \RuntimeException('\\ReflectionException: ' . $e->getMessage(), $e->getCode(), $e);
+        }
 
         $invokeArgs = [];
 
@@ -31,7 +34,7 @@ class InstanceFactory
             $parameterName = $parameter->getName();
 
             if (!array_key_exists($parameterName, $properties) && !$parameter->isOptional()) {
-                throw new RuntimeException(sprintf('Mandatory constructor parameter "%s" for class %s is missing from the given properties.',
+                throw new \RuntimeException(sprintf('Mandatory constructor parameter "%s" for class %s is missing from the given properties.',
                     $parameterName, $className));
             }
 
