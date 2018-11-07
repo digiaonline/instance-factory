@@ -90,6 +90,8 @@ class Person#2 (3) {
 }
 ``` 
 
+If instantiation fails for whatever reason, `\RuntimeException` is thrown.
+
 ## License
 
 MIT

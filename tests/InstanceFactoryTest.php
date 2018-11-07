@@ -14,8 +14,6 @@ class InstanceFactoryTest extends TestCase
 
     /**
      * @covers \Digia\InstanceFactory\InstanceFactory::fromProperties
-     *
-     * @throws \ReflectionException
      */
     public function testFromPropertiesWithoutOptional(): void
     {
@@ -34,8 +32,6 @@ class InstanceFactoryTest extends TestCase
 
     /**
      * @covers \Digia\InstanceFactory\InstanceFactory::fromProperties
-     *
-     * @throws \ReflectionException
      */
     public function testFromPropertiesWithOptional(): void
     {
@@ -55,8 +51,6 @@ class InstanceFactoryTest extends TestCase
 
     /**
      * @covers \Digia\InstanceFactory\InstanceFactory::fromProperties
-     *
-     * @throws \ReflectionException
      */
     public function testFromPropertiesWithNullable(): void
     {
@@ -76,12 +70,19 @@ class InstanceFactoryTest extends TestCase
     /**
      * @covers \Digia\InstanceFactory\InstanceFactory::fromProperties
      * @expectedException \RuntimeException
-     *
-     * @throws \ReflectionException
      */
     public function testFromPropertiesWithInvalid(): void
     {
         InstanceFactory::fromProperties(Dummy::class, ['quuix' => 1.23]);
+    }
+
+    /**
+     * @expectedException \RuntimeException
+     * @expectedExceptionMessage \ReflectionException: Class does_not_exist does not exist
+     */
+    public function testReflectionExceptionGetsWrapped(): void
+    {
+        InstanceFactory::fromProperties('does_not_exist', []);
     }
 }
 
